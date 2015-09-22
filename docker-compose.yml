@@ -22,8 +22,8 @@ db-server:
 
 # the sonar server container
 sonar-server:
+  image: "polster/docker-sonar"
   container_name: "quality-server"
-  build: .
   ports:
     - "9000:9000"
   links:
