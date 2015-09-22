@@ -1,0 +1,34 @@
+# the sql server data store container
+db-server-data:
+  image: "polster/docker-mysql"
+  container_name: "db-server-data"
+  command: "/bin/true"
+  volumes:
+    - "/var/lib/mysql"
+
+# the sql server container
+db-server:
+  image: "polster/docker-mysql"
+  container_name: "db-server"
+  ports:
+    - "3306:3306"
+  volumes_from:
+    - "db-server-data"
+  environment:
+    MYSQL_ROOT_PASSWORD: "test12345"
+    MYSQL_DATABASE: "sonar"
+    MYSQL_USER: "sonar"
+    MYSQL_PASSWORD: "sonar"
+
+# the sonar server container
+sonar-server:
+  container_name: "quality-server"
+  build: .
+  ports:
+    - "9000:9000"
+  links:
+    - "db-server"
+  environment:
+    SONARQUBE_JDBC_USERNAME: "sonar"
+    SONARQUBE_JDBC_PASSWORD: "sonar"
+    SONARQUBE_JDBC_URL: "jdbc:mysql://db-server:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true"
