@@ -10,6 +10,15 @@
 * MySQL Server 5.6 Docker container
 * Minimal [SQL setup](mysql.sql)
 
+## Configuration
+
+| Env Variable | Description | Default value |
+|--------------|-------------|---------------|
+| SONARQUBE_JDBC_USERNAME | The Sonar DB user name | sonar |
+| SONARQUBE_JDBC_PASSWORD | The Sonar DB user passowrd | sonar |
+| SONARQUBE_JDBC_URL | The DB connection URL | jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true |
+| SONARQUBE_WEB_CONTEXT | The web app context | sonar |
+
 ## User Guide
 
 ### Automated setup
@@ -41,5 +50,5 @@ docker run -d --name <sonar container name> \
 
 * The Sonar Qube main page can be accessed via the following URL:
 ```
-http://<docker host>:9000
+http://<docker host>:9000/sonar
 ```
