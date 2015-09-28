@@ -17,7 +17,7 @@
 | SONARQUBE_JDBC_USERNAME | The Sonar DB user name | sonar |
 | SONARQUBE_JDBC_PASSWORD | The Sonar DB user passowrd | sonar |
 | SONARQUBE_JDBC_URL | The DB connection URL | jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true |
-| SONARQUBE_WEB_CONTEXT | The web app context | sonar |
+| SONARQUBE_WEB_CONTEXT | The web app context name which will be used within the URL (e.g. https://<host>:<port>/<app context>). This can be useful if running Sonar behind a web server proxy. Please note that the context name must start with a forward slash. | /sonar |
 
 ## User Guide
 

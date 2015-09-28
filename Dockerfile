@@ -12,7 +12,7 @@ ENV SONARQUBE_JDBC_PASSWORD sonar
 ENV SONARQUBE_JDBC_URL jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
 
 # Web config
-ENV SONARQUBE_WEB_CONTEXT sonar
+ENV SONARQUBE_WEB_CONTEXT /sonar
 
 # the home for sonar
 ENV SONARQUBE_HOME /opt/sonarqube
